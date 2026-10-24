@@ -2,7 +2,7 @@
   "_meta": {
     "purpose": "Personal profile database for filling job application forms",
     "source_resume": "utkarsh_sinha_5yoe.pdf",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-24",
     "fields_to_confirm": [
       "professional.years_of_experience (filename says 5, resume summary says 3+)",
       "education[0].graduation_year",
@@ -27,7 +27,9 @@
     "phone_international": "+91 9044657997",
     "linkedin": "https://linkedin.com/in/smm-utkarsh-sinha",
     "github": "https://github.com/utkodex",
-    "portfolio": ""
+    "portfolio": "",
+    "facebook": null,
+    "x_twitter": null
   },
   "address": {
     "line1": "177/1 Babu Purwa Colony",
@@ -38,7 +40,9 @@
     "country": "India",
     "country_code": "IN",
     "full_single_line": "177/1 Babu Purwa Colony, Kidwai Nagar, Kanpur, Uttar Pradesh 208023, India",
-    "timezone": "Asia/Kolkata (IST, UTC+5:30)"
+    "timezone": "Asia/Kolkata (IST, UTC+5:30)",
+    "city_state": "Kanpur, Uttar Pradesh",
+    "city_country": "Kanpur, India"
   },
   "professional": {
     "headline": "Data Scientist & Generative AI Engineer",
@@ -100,7 +104,10 @@
     "passport_holder": "",
     "standard_answer": "I am an Indian citizen based in India. For roles outside India I will require visa sponsorship and relocation support.",
     "security_clearance": "Yes",
-    "security_clearance_note": "Answer 'Yes' when asked about security clearance (per user). No specific clearance level recorded."
+    "security_clearance_note": "Answer 'Yes' when asked about security clearance (per user). No specific clearance level recorded.",
+    "citizenship_country": "India",
+    "export_control_restricted": false,
+    "export_control_answer": "None/Not applicable"
   },
   "eeo_self_identification": {
     "veteran_status": "I am not a veteran",
@@ -116,7 +123,9 @@
     "gender": "Male",
     "sexual_orientation": "Heterosexual / Straight",
     "note": "These are optional on most forms; 'Decline to self-identify' is always acceptable.",
-    "transgender_experience": "No"
+    "transgender_experience": "No",
+    "accommodation_needed": false,
+    "accommodation_answer": "N/A"
   },
   "experience": [
     {
@@ -171,7 +180,9 @@
       "graduation_year": "2021",
       "grade": "66.0%",
       "grade_type": "Cumulative Percentage",
-      "highest_education_level": "Bachelor's degree"
+      "highest_education_level": "Bachelor's degree",
+      "currently_enrolled": false,
+      "currently_enrolled_answer": "No"
     }
   ],
   "skills": {
@@ -361,5 +372,6 @@
   "form_filling_rules": {
     "how_did_you_hear": "LinkedIn",
     "state_dropdown_without_indian_states": "Pick 'Foreign Countries' (or 'Other' / 'Outside US') when Uttar Pradesh is not an option"
-  }
+  },
+  "is_student": false
 }

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
@@ -23,6 +24,28 @@ MODEL_ENV_VARS = ("SUB_CATEGORY_CLASSIFIER_MODEL", "CATEGORY_CLASSIFIER_MODEL", 
 REVIEW_THRESHOLD = 0.5
 MAX_BATCH = 20
 
+# Deterministic overrides, checked before jev. (category, compiled regex on the question text) -> label.
+# Only unambiguous phrasings belong here; everything else still goes to jev.
+OVERRIDES: list[tuple[str, re.Pattern[str], str]] = [
+    (c, re.compile(rx, re.I), label)
+    for c, rx, label in [
+        ("experience", r"current\s*\(?or most recent\)?\s*(company|employer)|most recent (company|employer)", "current_company"),
+        ("address", r"city\W{0,3}(and|,|/)\W{0,3}(state|province|region|country)|^current location$|where (you )?will (you )?be located", "city_state"),
+        ("work_authorization", r"export control|sanction", "export_control"),
+        ("work_authorization", r"indicate the applicable countr", "citizenship_country"),
+        ("contact", r"^(facebook|x \(fka twitter\)|x ?/ ?twitter|twitter|instagram|medium|stack ?overflow)(?!\w)", "social_profile"),
+        ("eeo", r"what support is needed|accommodation", "accommodation"),
+        ("education", r"(confirm|are) (that )?you (are )?(currently )?enrolled|currently enrolled in an? (master|phd|doctoral|bachelor|degree|graduate)|are you (currently )?(a )?student", "currently_enrolled"),
+    ]
+]
+
+
+def find_override(category: str, question: str) -> str | None:
+    for cat, rx, label in OVERRIDES:
+        if cat == category and rx.search(question):
+            return label
+    return None
+
 
 @dataclass
 class SubClassification:
@@ -35,6 +58,7 @@ class SubClassification:
     probabilities: dict[str, float] = field(default_factory=dict)
     model: str = ""
     id: str | None = None
+    source: str = "jev"
 
     @property
     def needs_review(self) -> bool:
@@ -107,10 +131,22 @@ class SubCategoryClassifier:
     def classify_many(self, items: Iterable[Mapping[str, Any]]) -> list[SubClassification]:
         """Each item: {category, question, options?, context?, id?}."""
         norm = [self._normalize(it) for it in items]
-        out: list[SubClassification] = []
-        for start in range(0, len(norm), MAX_BATCH):
-            out.extend(self._classify_batch(norm[start : start + MAX_BATCH]))
-        return out
+        results: list[SubClassification | None] = [None] * len(norm)
+        pending: list[tuple[int, dict[str, Any]]] = []
+        for idx, it in enumerate(norm):
+            label = find_override(it["category"], it["question"])
+            if label and label in self.subcategories[it["category"]]:
+                probs = {k: 0.0 for k in self.subcategories[it["category"]]}
+                probs[label] = 1.0
+                results[idx] = SubClassification(question=it["question"], category=it["category"], subcategory=label,
+                                                 confidence=1.0, probabilities=probs, model="rule", id=it["id"], source="rule")
+            else:
+                pending.append((idx, it))
+        for start in range(0, len(pending), MAX_BATCH):
+            chunk = pending[start : start + MAX_BATCH]
+            for (idx, _), res in zip(chunk, self._classify_batch([it for _, it in chunk])):
+                results[idx] = res
+        return [r for r in results if r is not None]
 
     def labels(self, category: str) -> dict[str, str]:
         return self.subcategories[self._category(category)]

@@ -13,7 +13,7 @@ KEYWORDS = {
     "first name": "first_name", "last name": "last_name", "name": "full_name", "birth": "date_of_birth",
     "email": "email", "phone": "phone", "mobile": "phone", "zip": "postal_code", "city": "city",
     "sponsorship": "requires_sponsorship", "veteran": "veteran_status", "expected": "expected_ctc",
-    "notice": "notice_period", "resume": "resume",
+    "notice": "notice_period", "resume": "resume", "company": "past_company",
 }
 
 
@@ -77,6 +77,40 @@ def test_mixed_categories_in_one_call(clf):
 def test_other_needs_review():
     c = SubClassification(question="q", category="personal", subcategory="other", confidence=0.9)
     assert c.needs_review and c.to_dict()["path"] == "personal.other"
+
+
+def test_overrides_skip_jev(clf):
+    items = [
+        {"category": "experience", "question": "Please provide the name of your current (or most recent) company"},
+        {"category": "address", "question": "In what city and state is your primary residence? (e.g. San Jose, CA)"},
+        {"category": "address", "question": "Current location"},
+        {"category": "address", "question": "Please include where you will be located during the duration of the internship (city, state)."},
+        {"category": "work_authorization", "question": "U.S. Export Control Requirements - Are you a citizen, national, or resident of any of the following countries/regions?"},
+        {"category": "work_authorization", "question": "If you checked ... please indicate the applicable country or countries. Type N/A if not applicable."},
+        {"category": "contact", "question": "Facebook"},
+        {"category": "contact", "question": "X (fka Twitter)"},
+        {"category": "eeo", "question": "If yes, please advise what support is needed:"},
+        {"category": "education", "question": "Please confirm you are currently enrolled in a Master's or PhD program."},
+        {"category": "experience", "question": "name your first company to last"},
+    ]
+    res = clf.classify_many(items)
+    assert [r.subcategory for r in res] == [
+        "current_company", "city_state", "city_state", "city_state", "export_control", "citizenship_country",
+        "social_profile", "social_profile", "accommodation", "currently_enrolled", "past_company",
+    ]
+    assert [r.source for r in res][:10] == ["rule"] * 10
+    assert res[-1].source == "jev"
+    assert all(not r.needs_review for r in res)
+    assert len(clf.client.calls) == 1 and len(clf.client.calls[0]["questions"]) == 1
+
+
+def test_new_labels_exist():
+    assert {"city_state"} <= set(SUBCATEGORIES["address"])
+    assert {"citizenship_country", "export_control"} <= set(SUBCATEGORIES["work_authorization"])
+    assert "social_profile" in SUBCATEGORIES["contact"] and "accommodation" in SUBCATEGORIES["eeo"]
+    assert "currently_enrolled" in SUBCATEGORIES["education"]
+    assert {"past_company", "past_title", "past_dates"} <= set(SUBCATEGORIES["experience"])
+    assert "employer" not in SUBCATEGORIES["experience"]
 
 
 def test_unknown_category(clf):
