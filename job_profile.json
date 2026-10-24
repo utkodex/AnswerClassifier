@@ -1,0 +1,365 @@
+{
+  "_meta": {
+    "purpose": "Personal profile database for filling job application forms",
+    "source_resume": "utkarsh_sinha_5yoe.pdf",
+    "last_updated": "2026-10-15",
+    "fields_to_confirm": [
+      "professional.years_of_experience (filename says 5, resume summary says 3+)",
+      "education[0].graduation_year",
+      "personal.date_of_birth"
+    ]
+  },
+  "personal": {
+    "full_name": "Utkarsh Sinha",
+    "first_name": "Utkarsh",
+    "last_name": "Sinha",
+    "preferred_name": "Utkarsh",
+    "pronouns": "He/Him",
+    "date_of_birth": "08/September/1995",
+    "gender": "Male",
+    "nationality": "Indian",
+    "citizenship": "India"
+  },
+  "contact": {
+    "email": "sinhautkarshgc@gmail.com",
+    "phone": "9044657997",
+    "phone_country_code": "+91",
+    "phone_international": "+91 9044657997",
+    "linkedin": "https://linkedin.com/in/smm-utkarsh-sinha",
+    "github": "https://github.com/utkodex",
+    "portfolio": ""
+  },
+  "address": {
+    "line1": "177/1 Babu Purwa Colony",
+    "line2": "Kidwai Nagar",
+    "city": "Kanpur",
+    "state": "Uttar Pradesh",
+    "postal_code": "208023",
+    "country": "India",
+    "country_code": "IN",
+    "full_single_line": "177/1 Babu Purwa Colony, Kidwai Nagar, Kanpur, Uttar Pradesh 208023, India",
+    "timezone": "Asia/Kolkata (IST, UTC+5:30)"
+  },
+  "professional": {
+    "headline": "Data Scientist & Generative AI Engineer",
+    "current_title": "Data Scientist & GenAI Engineer",
+    "current_company": "Aztra AI",
+    "currently_employed": true,
+    "years_of_experience": 5,
+    "years_of_experience_resume_text": "4+",
+    "seniority_level": "Mid-level / Senior",
+    "summary": "Data Scientist & Generative AI Engineer with 4+ years of experience shipping production AI systems across multi-agent LLM workflows, RAG, NLP, time-series forecasting and MLOps. Builds LangGraph agents on Databricks and GCP, fine-tunes open LLMs (32B-70B) with LoRA, and deploys RAG applications on AWS.",
+    "target_roles": [
+      "Data Scientist",
+      "Generative AI Engineer",
+      "GenAI Engineer",
+      "ML Engineer",
+      "AI Engineer",
+      "LLM Engineer",
+      "MLOps Engineer"
+    ]
+  },
+  "work_preferences": {
+    "primary_preference": "Remote",
+    "remote": true,
+    "hybrid": "Only in Delhi NCR region or Lucknow",
+    "onsite": "Only in Delhi NCR region or Lucknow",
+    "acceptable_onsite_hybrid_locations": [
+      "Delhi",
+      "New Delhi",
+      "Gurugram (Gurgaon)",
+      "Noida",
+      "Greater Noida",
+      "Ghaziabad",
+      "Faridabad",
+      "Lucknow"
+    ],
+    "willing_to_relocate": "Yes, only to Delhi NCR region or Lucknow",
+    "willing_to_relocate_boolean_default": false,
+    "open_to_international_roles": true,
+    "employment_types": [
+      "Full-time",
+      "Contract",
+      "Freelance"
+    ],
+    "willing_to_travel": "Yes",
+    "preferred_work_arrangement_answer": "Remote preferred. Open to hybrid or onsite only in Delhi NCR (Delhi, Gurugram, Noida, Ghaziabad, Faridabad) or Lucknow.",
+    "willing_to_travel_up_to_20_percent": "Yes"
+  },
+  "work_authorization": {
+    "country_of_residence": "India",
+    "authorized_to_work_in_india": true,
+    "authorized_to_work_in_usa": false,
+    "authorized_to_work_in_uk": false,
+    "authorized_to_work_in_eu": false,
+    "authorized_to_work_in_canada": false,
+    "authorized_to_work_in_australia": false,
+    "requires_visa_sponsorship_for_international_roles": true,
+    "will_require_sponsorship_now_or_in_future": true,
+    "current_visa_status": "None (Indian citizen residing in India)",
+    "passport_holder": "",
+    "standard_answer": "I am an Indian citizen based in India. For roles outside India I will require visa sponsorship and relocation support.",
+    "security_clearance": "Yes",
+    "security_clearance_note": "Answer 'Yes' when asked about security clearance (per user). No specific clearance level recorded."
+  },
+  "eeo_self_identification": {
+    "veteran_status": "I am not a veteran",
+    "is_veteran": false,
+    "protected_veteran": "No",
+    "military_service": "None",
+    "disability_status": "No, I do not have a disability",
+    "has_disability": false,
+    "race_ethnicity": "Asian (Indian)",
+    "race_ethnicity_us_form": "Asian",
+    "race_ethnicity_uk_form": "Asian or Asian British - Indian",
+    "religion": "Hindu",
+    "gender": "Male",
+    "sexual_orientation": "Heterosexual / Straight",
+    "note": "These are optional on most forms; 'Decline to self-identify' is always acceptable.",
+    "transgender_experience": "No"
+  },
+  "experience": [
+    {
+      "title": "Data Scientist & GenAI Engineer",
+      "company": "Aztra AI",
+      "location": "Remote (India)",
+      "employment_type": "Full-time",
+      "start_date": "2026-05",
+      "end_date": "Present",
+      "current": true,
+      "bullets": [
+        "Build production multi-agent GenAI and ML systems for enterprise clients in retail demand planning and career-tech on Databricks and GCP, with MLflow tracing and CI/CD across develop, staging and production.",
+        "Drive spec-driven agentic development with Claude Code and GitHub Spec Kit across 6 sprints with a test-first workflow."
+      ]
+    },
+    {
+      "title": "ML & AI Engineer",
+      "company": "SmartXAlgo",
+      "location": "Bhubaneswar, Odisha (India)",
+      "employment_type": "Full-time",
+      "start_date": "2025-12",
+      "end_date": "2026-03",
+      "current": false,
+      "bullets": [
+        "Architected an AI stock-trading automation platform combining time-series forecasting, NLP sentiment and LLM reasoning, achieving ~70% directional accuracy in backtesting.",
+        "Built a multi-model decision engine with ensemble approval and three additional AI-agent workflows, and automated CI/CD for reproducible model releases."
+      ]
+    },
+    {
+      "title": "Data Scientist & GenAI Engineer",
+      "company": "LawSikho & Skill Arbitrage",
+      "location": "Remote (India)",
+      "employment_type": "Full-time",
+      "start_date": "2023-05",
+      "end_date": "2025-11",
+      "current": false,
+      "bullets": [
+        "Led a team of 2+ AI engineers building production ML and GenAI systems for education and HR tech.",
+        "Designed MLOps pipelines with MLflow, DVC (AWS S3), Docker and GitHub Actions, cutting deployment time by ~40%; added Prometheus/Grafana monitoring that halved drift-detection latency.",
+        "Delivered 1,000+ live training sessions on Data Science, MLOps and GenAI with a 4.5+/5 rating."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "BBA LLB (Integrated)",
+      "field_of_study": "Business Administration and Law",
+      "institution": "Guru Gobind Singh Indraprastha University",
+      "institution_short": "GGSIPU",
+      "location": "Delhi, India",
+      "start_year": "2016",
+      "graduation_year": "2021",
+      "grade": "66.0%",
+      "grade_type": "Cumulative Percentage",
+      "highest_education_level": "Bachelor's degree"
+    }
+  ],
+  "skills": {
+    "ml_deep_learning": [
+      "Python",
+      "PyTorch",
+      "CNN",
+      "RNN/LSTM",
+      "Transformers",
+      "BERT",
+      "LightGBM",
+      "Time-Series Forecasting"
+    ],
+    "generative_ai": [
+      "RAG",
+      "Fine-tuning (LoRA, Unsloth)",
+      "AI Agents",
+      "Embeddings",
+      "OpenAI",
+      "Claude",
+      "Gemini",
+      "LLaMA",
+      "Hugging Face"
+    ],
+    "llm_frameworks_apis": [
+      "LangChain",
+      "LangGraph",
+      "LlamaIndex",
+      "AWS Bedrock",
+      "LangSmith",
+      "Langfuse",
+      "FastAPI",
+      "Flask",
+      "Celery"
+    ],
+    "data_vector_stores": [
+      "PostgreSQL + pgvector",
+      "MySQL",
+      "MongoDB",
+      "Redis",
+      "FAISS",
+      "ChromaDB",
+      "Pinecone",
+      "LanceDB"
+    ],
+    "mlops_cloud": [
+      "Git",
+      "Docker",
+      "DVC",
+      "MLflow",
+      "GitHub Actions",
+      "Terraform",
+      "Prometheus",
+      "Grafana",
+      "AWS",
+      "Databricks",
+      "GCP"
+    ],
+    "agentic_coding_tools": [
+      "Claude Code",
+      "Antigravity",
+      "Cursor"
+    ],
+    "programming_languages": [
+      "Python",
+      "SQL"
+    ],
+    "flat_list_comma_separated": "Python, PyTorch, Transformers, BERT, LightGBM, Time-Series Forecasting, RAG, LoRA, Unsloth, AI Agents, LangChain, LangGraph, LlamaIndex, AWS Bedrock, LangSmith, Langfuse, FastAPI, Flask, Celery, PostgreSQL, pgvector, MySQL, MongoDB, Redis, FAISS, ChromaDB, Pinecone, LanceDB, Git, Docker, DVC, MLflow, GitHub Actions, Terraform, Prometheus, Grafana, AWS, Databricks, GCP, Claude Code, Cursor"
+  },
+  "projects": [
+    {
+      "name": "Aurora V2 - Self-Improving Demand-Forecasting Agents",
+      "organization": "Aztra AI",
+      "description": "Built 3 cooperating LangGraph agents (feature engineering, self-improving forecasting, model-health monitoring) for a fashion-retail demand-planning platform on Databricks with Claude Sonnet and MLflow 3. Designed a self-improving loop training cohort x horizon LightGBM models with Optuna and LLM-proposed configs, reaching 0.194 portfolio WAPE, plus counterfactual attribution of forecast misses."
+    },
+    {
+      "name": "Lyftrr - AI Career-Trajectory & Mentoring Platform",
+      "organization": "Aztra AI",
+      "description": "Built a FastAPI + Celery AI service on Vertex AI Gemini generating career paths, roadmaps and adaptive skill assessments, shipped to GCP Cloud Run with Terraform. Engineered hybrid retrieval on PostgreSQL + pgvector fusing full-text, fuzzy, dense and SPLADE search via Reciprocal Rank Fusion, with an LLM generate-on-miss fallback."
+    },
+    {
+      "name": "Stock Market AutoTrader - Multi-Model AI Trading System",
+      "organization": "SmartXAlgo",
+      "description": "Trained a Transformer multi-horizon forecaster on 5+ years of minute-level OHLCV data for 2,000+ equities, lifting directional consistency to ~80% with volatility, momentum and regime features. Fine-tuned BERT for financial news sentiment (~93% accuracy) and 32B Qwen/DeepSeek models with LoRA (Unsloth), cutting GPU memory by ~60%."
+    },
+    {
+      "name": "TalentLens - RAG-Powered CV Matching Engine",
+      "organization": "LawSikho & Skill Arbitrage",
+      "description": "Matched 1,000+ CVs with hybrid embedding + TF-IDF scoring and LLaMA-70B reranking via Groq, cutting matching time by ~70% versus manual screening; deployed on AWS EC2 with Docker."
+    }
+  ],
+  "awards": [
+    {
+      "title": "The Innovation Maverick",
+      "issuer": "LawSikho & Skill Arbitrage",
+      "date": "2023-11"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Professional working proficiency"
+    },
+    {
+      "language": "Hindi",
+      "proficiency": "Native"
+    }
+  ],
+  "compensation": {
+    "current_ctc": {
+      "amount": "9 LPA",
+      "inr": 900000,
+      "currency": "INR"
+    },
+    "expected_ctc": {
+      "summary": "24 LPA for roles in India; 60 LPA to 1 Cr INR (about 72,000 to 120,000 USD) for USA/international roles; if the posting lists a salary higher than current CTC (9 LPA), use the posted salary",
+      "currency": "INR",
+      "india": {
+        "amount": "24 LPA",
+        "inr": 2400000,
+        "currency": "INR"
+      },
+      "international": {
+        "range": "60 LPA to 1 Cr",
+        "inr_min": 6000000,
+        "inr_max": 10000000,
+        "currency": "INR",
+        "usd_approx": "72,000 to 120,000 USD",
+        "usd_min": 72000,
+        "usd_max": 120000
+      },
+      "if_job_posting_lists_salary": "Use the posted salary if it is greater than current CTC (9 LPA)"
+    },
+    "salary_negotiable": true
+  },
+  "availability": {
+    "notice_period": "1 month",
+    "notice_period_days": 30,
+    "earliest_start_date": "1 month after resignation (offer date + 30 days)",
+    "available_immediately": false,
+    "standard_answer": "I am currently employed and have a 1-month notice period, so I can join about 30 days after accepting an offer."
+  },
+  "common_form_answers": {
+    "Are you legally authorized to work in India?": "Yes",
+    "Are you legally authorized to work in the United States / UK / EU / Canada / Australia?": "No",
+    "Will you now or in the future require sponsorship for employment visa status?": "Yes, for roles outside India",
+    "Do you require visa sponsorship?": "Yes, for international roles",
+    "Are you a veteran?": "No",
+    "Protected veteran status": "I am not a protected veteran",
+    "Are you willing to relocate?": "Only within Delhi NCR or Lucknow; otherwise remote only",
+    "Preferred work location": "Remote",
+    "Work arrangement preference": "Remote (hybrid/onsite acceptable only in Delhi NCR or Lucknow)",
+    "Are you currently employed?": "Yes",
+    "Current employer": "Aztra AI",
+    "Current job title": "Data Scientist & GenAI Engineer",
+    "Highest level of education": "Bachelor's degree (BBA LLB)",
+    "Are you 18 years of age or older?": "Yes",
+    "Have you previously worked for this company?": "No",
+    "How did you hear about this position?": "LinkedIn",
+    "Do you have experience with Python?": "Yes",
+    "Do you have experience with LLMs / Generative AI?": "Yes",
+    "Do you have experience with cloud platforms?": "Yes (AWS, GCP, Databricks)",
+    "Are you comfortable working across time zones?": "Yes",
+    "Current CTC / salary": "9 LPA (INR)",
+    "Expected CTC / salary": "24 LPA for roles in India; 60 LPA to 1 Cr INR for USA/international roles; or the posted salary if higher than 9 LPA",
+    "Notice period": "1 month (30 days)",
+    "When can you start?": "About 30 days after accepting the offer (1-month notice period)",
+    "Are you willing to travel (up to 20%)?": "Yes",
+    "Do you hold a security clearance?": "Yes",
+    "Are you a person of transgender experience?": "No",
+    "Do you have a non-compete / restrictive agreement with your current or former employer?": "No",
+    "Do you have relatives or family members employed at this company?": "No",
+    "Have you been involved in government procurement or contract award activities involving this company?": "No",
+    "Were you referred by an employee? / Who referred you?": "No",
+    "State (US/Canada dropdown)": "Foreign Countries"
+  },
+  "employment_history_checks": {
+    "has_restrictive_agreement_with_current_employer": false,
+    "non_compete_answer": "No",
+    "has_relatives_at_target_company": false,
+    "relatives_at_company_answer": "No (default for every company)",
+    "worked_with_government_procurement": false,
+    "government_procurement_answer": "No, never worked as a government employee or official",
+    "was_referred": false,
+    "referral_answer": "No"
+  },
+  "form_filling_rules": {
+    "how_did_you_hear": "LinkedIn",
+    "state_dropdown_without_indian_states": "Pick 'Foreign Countries' (or 'Other' / 'Outside US') when Uttar Pradesh is not an option"
+  }
+}
