@@ -1,4 +1,4 @@
-# jobanswer - answer job-application questions from `job_profile.json`
+# jobanswer - answer job-application questions from `profile/job_profile.json`
 
 Give it a form question (free text, single-choice or multi-choice) and it returns the
 answer the profile says to give, plus the exact option string(s) to click.
@@ -18,7 +18,7 @@ A: No
 | free text (name, phone, notice period, CTC...) | **rule engine** | - |
 | essays ("why do you want to work here") | **Claude** (optional) | - |
 
-1. **jev** (`jobanswer/jev.py`) - the whole `job_profile.json` is sent as the model's
+1. **jev** (`jobanswer/jev.py`) - the whole `profile/job_profile.json` is sent as the model's
    *state* together with a short answering policy; every option question becomes a
    `Choice` (single-select) or one `Noul` per option (multi-select, ticked at >= 50%).
    You get a probability for every option. Many questions go in one API call.
@@ -74,7 +74,7 @@ python answer.py -i
 --llm never         skip Claude
 --llm always        ask Claude for every free-text question (rules become hints)
 --model <id>        Claude model (default claude-opus-5-5)
---profile <path>    alternative job_profile.json
+--profile <path>    alternative job_profile.json (default profile/job_profile.json)
 -c "<job context>"  e.g. "Senior ML Engineer, Acme, Berlin" - helps salary / authorization answers
 ```
 
@@ -110,7 +110,7 @@ for a in engine.answer_many([Question("Notice period"), Question("Gender", ["Mal
 
 ## Changing the answers
 
-Edit `job_profile.json`; the rules read from it (names, salary rules, notice period,
+Edit `profile/job_profile.json`; the rules read from it (names, salary rules, notice period,
 acceptable onsite cities, EEO answers, default "No"s). To add a new question family add a
 `@rule` function in `jobanswer/rules.py` and a case in `tests/test_rules.py`.
 
@@ -204,3 +204,14 @@ sub.subcategory, sub.path                    # 'full_name', 'personal.full_name'
 ```
 
 Tests: `python -m pytest -q tests/test_sub_category_classifier.py`.
+
+## Layout
+
+```
+answer.py / classify.py / subclassify.py   launchers (run from the repo root)
+src/                                       category_classifier, sub_category_classifier packages
+tests/                                     pytest suite (offline with a fake jev)
+profile/                                   job_profile.json, job_profile.md, resume PDF
+MyDocs/                                    generated HTML reports (git-ignored)
+experiments/                               jev-test (image input), TTS-tests (git-ignored)
+```
