@@ -19,11 +19,14 @@ A: No
 | essays ("why do you want to work here") | **Claude** (optional) | - |
 
 1. **jev** (`jobanswer/jev.py`) - the whole `profile/job_profile.json` is sent as the model's
-   *state* together with a short answering policy; every option question becomes a
+   *state* together with a short answering policy (`POLICY`); every option question becomes a
    `Choice` (single-select) or one `Noul` per option (multi-select, ticked at >= 50%).
    You get a probability for every option. Many questions go in one API call.
    Needs `TYPESAFE_API_KEY` in `.env`.
-2. **Rule engine** (`jobanswer/rules.py`) - deterministic, offline. Covers identity,
+2. **Rule engine** (`jobanswer/rules.py` + `jobanswer/profile.py`) - deterministic, offline. A regex table maps the
+   question to a profile field (the same `category.subcategory` labels the classifiers use), and the
+   profile turns that into a short answer. Questions no rule matches go through the two jev
+   classifiers in `src/` and then the same profile lookup. Covers identity,
    contact, address, work authorization / visa, EEO self-identification, employment
    checks (relatives, non-compete, referral...), work preferences (remote / relocation /
    onsite-in-NCR), salary buckets in INR or USD, notice period, education, skills,
@@ -81,6 +84,17 @@ python answer.py -i
 Batch file format: a JSON list of `{"id"?, "question", "options"?, "multi"?, "type"?, "context"?}`.
 `type` accepts the ATS field types: `text`, `textarea`, `select`/`single`, `multiselect`/`checkbox`/`multi`, `boolean`.
 
+## As an HTTP API (for form fillers)
+
+```bash
+python api.py            # http://127.0.0.1:8765, Swagger UI at /docs
+curl -s http://127.0.0.1:8765/answers -H "Content-Type: application/json"   -d '{"context":"ML Engineer, Acme, Noida","questions":[{"id":"q1","question":"Notice period"},{"id":"q2","question":"Gender","options":["Male","Female"]}]}'
+```
+
+Every answer carries an `action` (`type` / `select` / `check` / `skip`) plus `value` / `values`, so
+the form filler never has to interpret anything. The full request/response contract is in
+[API.md](API.md). Set `JOBANSWER_API_KEY` to require an `X-API-Key` header.
+
 ## As a library
 
 ```python
@@ -112,7 +126,8 @@ for a in engine.answer_many([Question("Notice period"), Question("Gender", ["Mal
 
 Edit `profile/job_profile.json`; the rules read from it (names, salary rules, notice period,
 acceptable onsite cities, EEO answers, default "No"s). To add a new question family add a
-`@rule` function in `jobanswer/rules.py` and a case in `tests/test_rules.py`.
+`(path, regex)` row to `RULES` in `jobanswer/rules.py` (and a profile lookup in `jobanswer/profile.py`
+if the field is new), then a case in `tests/test_jobanswer.py`.
 
 ```bash
 python -m pytest -q
@@ -209,6 +224,8 @@ Tests: `python -m pytest -q tests/test_sub_category_classifier.py`.
 
 ```
 answer.py / classify.py / subclassify.py   launchers (run from the repo root)
+api.py + API.md                            HTTP API for form fillers and its contract
+jobanswer/                                 answering engine: rules, profile lookup, option matching, jev, Claude
 src/                                       category_classifier, sub_category_classifier packages
 tests/                                     pytest suite (offline with a fake jev)
 profile/                                   job_profile.json, job_profile.md, resume PDF

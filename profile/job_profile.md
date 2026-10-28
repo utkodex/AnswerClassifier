@@ -102,7 +102,7 @@ Summary: Data Scientist & Generative AI Engineer with 3+ years of experience shi
 - **Generative AI:** RAG, Fine-tuning (LoRA, Unsloth), AI Agents, Embeddings, OpenAI, Claude, Gemini, LLaMA, Hugging Face
 - **LLM Frameworks & APIs:** LangChain, LangGraph, LlamaIndex, AWS Bedrock, LangSmith, Langfuse, FastAPI, Flask, Celery
 - **Data & Vector Stores:** PostgreSQL + pgvector, MySQL, MongoDB, Redis, FAISS, ChromaDB, Pinecone, LanceDB
-- **MLOps & Cloud:** Git, Docker, DVC, MLflow, GitHub Actions, Terraform, Prometheus, Grafana, AWS, Databricks, GCP
+- **MLOps & Cloud:** Git, Docker, Kubernetes, DVC, MLflow, GitHub Actions, Terraform, Prometheus, Grafana, AWS, Databricks, GCP
 - **Agentic Coding:** Claude Code, Antigravity, Cursor
 
 ## Projects

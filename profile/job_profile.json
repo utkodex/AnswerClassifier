@@ -231,6 +231,7 @@
     "mlops_cloud": [
       "Git",
       "Docker",
+      "Kubernetes",
       "DVC",
       "MLflow",
       "GitHub Actions",
@@ -250,7 +251,7 @@
       "Python",
       "SQL"
     ],
-    "flat_list_comma_separated": "Python, PyTorch, Transformers, BERT, LightGBM, Time-Series Forecasting, RAG, LoRA, Unsloth, AI Agents, LangChain, LangGraph, LlamaIndex, AWS Bedrock, LangSmith, Langfuse, FastAPI, Flask, Celery, PostgreSQL, pgvector, MySQL, MongoDB, Redis, FAISS, ChromaDB, Pinecone, LanceDB, Git, Docker, DVC, MLflow, GitHub Actions, Terraform, Prometheus, Grafana, AWS, Databricks, GCP, Claude Code, Cursor"
+    "flat_list_comma_separated": "Python, PyTorch, Transformers, BERT, LightGBM, Time-Series Forecasting, RAG, LoRA, Unsloth, AI Agents, LangChain, LangGraph, LlamaIndex, AWS Bedrock, LangSmith, Langfuse, FastAPI, Flask, Celery, PostgreSQL, pgvector, MySQL, MongoDB, Redis, FAISS, ChromaDB, Pinecone, LanceDB, Git, Docker, Kubernetes, DVC, MLflow, GitHub Actions, Terraform, Prometheus, Grafana, AWS, Databricks, GCP, Claude Code, Cursor"
   },
   "projects": [
     {
